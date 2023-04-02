@@ -116,6 +116,7 @@ mysqli_close($connect);
     <title>Login & Registration Form</title>
 </head>
 <body>
+    <img src="pet.png" width:50%>
     <div class="container">
     <h1>Registration Form</h1>
     <div class="alert alert-success" role="alert">
