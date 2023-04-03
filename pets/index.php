@@ -3,9 +3,11 @@ require_once '../components/db_connect.php';
 session_start();
 if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){
     header("Location:../index.php");
+    exit;
 }
 if(isset($_SESSION["user"])){
     header("Location:../home.php");
+    exit;
 }
 
 
@@ -59,7 +61,7 @@ mysqli_close($connect);
         <div class="manageProduct w-75 mt-3">    
             <div class='mb-3'>
                 <a href= "create.php"><button class='btn btn-primary'type="button" >Add PET</button></a>
-                <a href= "../dashboard.php" class="btn btn-primary">Dashboard</a>
+                <a href= "../dashboard.php"><button class="btn btn-success" type="button">Dashboard</button></a>
             </div>
             <p class='h2'>Pets</p>
             <table class='table table-striped'>

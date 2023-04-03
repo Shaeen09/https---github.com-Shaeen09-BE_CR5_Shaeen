@@ -5,7 +5,7 @@ function file_upload($picture, $src ="user")
    $result->fileName = 'user.png';
 
    if($src == "pets"){
-    $result->fileName = 'product.png';
+    $result->fileName = 'pet.png';
    }
    $result->error = 1;//it could also be a boolean true/false
    //collect data from object $picture

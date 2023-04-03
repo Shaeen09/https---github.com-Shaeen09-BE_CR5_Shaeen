@@ -1,13 +1,14 @@
 <?php
 session_start();
+require_once "../components/db_connect.php";
 
 if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){
     header("Location:../index.php");
 }
-if(isset($_SESSION["user"])){
+if(isset($_SESSION["user"]) !="") { 
     header("Location:../home.php");
 }
-require_once "../components/db_connect.php";
+
 $sql = "Select * FROM `suppliers`";
 
 $result = mysqli_query($connect, $sql);
