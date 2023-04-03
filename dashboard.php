@@ -71,7 +71,7 @@ mysqli_close($connect);
   <div class="container">
       <div class="row">
           <div class="col-2">
-              <img class="userImage" src="pictures/admavatar.png" alt="Adm avatar">
+              <img class="userImage" src="pictures/admin.png" alt="Admin pic">
               <p class="">Administrator</p>
               <a href="logout.php?logout">Sign Out</a>
               <a href="pets/index.php">Pets</a>
