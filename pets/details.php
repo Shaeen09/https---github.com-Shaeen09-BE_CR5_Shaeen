@@ -46,19 +46,20 @@ $row =mysqli_fetch_assoc($result);
        <div class="container">
        
             <p class='h2'>Pets Details</p>
-            <div class="card" style="width: 18rem;">
-  <img src="{$row['picture']}" class="card-img-top" alt="...">
+            <div class="card" style="width: 24rem;">
+  <img src="<?$row['picture']?>" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">$row['name']</h5>
+    <h5 class="card-title"><?$row['name']?></h5>
+    <h5 class="card-title"><?$row['gender']?></h5>
+    <h5 class="card-title"><?$row['breed']?></h5>
+    <h5 class="card-title"><?$row['age']?></h5>
+    <h5 class="card-title"><?$row['vaccinated']?></h5>
     <a href="index.php" class="btn btn-primary">Home</a>
   </div>
-</div>
-<a href= "create.php"><button class='btn btn-warning'type="button" >PET Details</button></a>
+            </div>
+        <a href= "create.php"><button class='btn btn-warning'type="button" >PET Details</button></a>
      <a href= "../dashboard.php"><button class="btn btn-success" type="button">Dashboard</button></a>        
-</div>
-          
-                   
-                
+        </div>          
         
     </body>
 </html>
