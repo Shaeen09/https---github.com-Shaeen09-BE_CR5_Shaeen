@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
   $pictureArray = file_upload($_FILES['picture']); //file_upload() called
   $picture = $pictureArray->fileName;
   if ($pictureArray->error === 0) {
-      ($_POST["picture"] == "avatar.png") ?: unlink("pictures/{$_POST["picture"]}");
+      ($_POST["picture"] == "user.png") ?: unlink("pictures/{$_POST["picture"]}");
       $sql = "UPDATE users SET first_name = '$f_name', last_name = '$l_name', email = '$email', date_of_birth = '$date_of_birth', picture = '$pictureArray->fileName' WHERE id = {$id}";
   } else {
       $sql = "UPDATE users SET first_name = '$f_name', last_name = '$l_name', email = '$email', date_of_birth = '$date_of_birth' WHERE id = {$id}";
@@ -114,7 +114,7 @@ mysqli_close($connect);
               </tr>
               <tr>
                   <th>Date of birth</th>
-                  <td><input class="form-control" type="date" name="date_of_birth" placeholder="Date of birth" value="<?php echo $date_birth ?>" /></td>
+                  <td><input class="form-control" type="date" name="date_of_birth" placeholder="Date of birth" value="<?php echo $date_of_birth ?>" /></td>
               </tr>
               <tr>
                   <th>Picture</th>

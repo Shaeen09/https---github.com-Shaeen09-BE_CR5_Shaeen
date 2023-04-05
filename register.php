@@ -5,10 +5,10 @@ require_once "components/file_upload.php";
 
 session_start();
 
-if(isset($_SESSION["user"])){
+if(isset($_SESSION["user"]) !=""){
     header("Location: home.php");
 }
-if(isset($_SESSION["adm"])){
+if(isset($_SESSION["adm"]) !=""){
     header("Location: dashboard.php");
 }
 $error = false;
@@ -86,7 +86,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     // if there's no error, continue to signup
     if (!$error) {
   
-        $sql = "INSERT INTO users(first_name, last_name, password, date_of_birth, email, picture)
+        $sql = "INSERT INTO users (first_name, last_name, password, date_of_birth, email, picture)
                   VALUES(' $first_name ', ' $last_name ', '$password', '$date_of_birth', '$email', '$picture->fileName')";
         $res = mysqli_query($connect, $sql);
   
@@ -149,7 +149,7 @@ mysqli_close($connect);
     <span class="text-danger"><?= $dateError ?></span>
     <input type="file"  class="form-control" name="picture">
     <input type="submit" class="form-control" name="register" value="Register">
-
+<a href="index.php">Sign in here..</a>
 
 
 

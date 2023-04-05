@@ -14,14 +14,18 @@ if(isset($_SESSION["user"])){
 if ($_POST) {   
     $name = $_POST['name'];
     $gender = $_POST['gender'];
+    $breed = $_POST['breed'];
+    $size = $_POST['size'];
     $age = $_POST['age'];
     $picture = $_POST['picture'];
+    $vaccinated = $_POST['vaccinated'];
+    $availability = $_POST['availability'];
     $supplier = $_POST['supplier'];
     $uploadError = '';
     //this function exists in the service file upload.
-    $picture = file_upload($_FILES['picture'], "pets");  
-   
-    $sql = "INSERT INTO pets (name, gender, age,picture fk_supplierId) VALUES ('$name',$gender, $age,'$picture->fileName',$supplier)";
+    // $picture = file_upload($_FILES['picture'], "pets");  
+
+    $sql="INSERT INTO `pets`( `name`, `gender`, `breed`, `size`, `age`, `picture`, `vaccinated`, `availability`, `fk_supplierId`) VALUES (' $name','$gender','$breed','$size','$age','$picture','$vaccinated','$availability','$supplier')";
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
@@ -29,14 +33,19 @@ if ($_POST) {
             <table class='table w-50'><tr>
             <td> $name </td>
             <td> $gender </td>
+            <td> $breed </td>
+            <td> $size </td>
             <td> $age </td>
             <td>$picture</td>
+            <td> $vaccinated</td>
+            <td> $availability</td>
+            <td>$supplier</td>
             </tr></table><hr>";
-        $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
+        // $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
     } else {
         $class = "danger";
         $message = "Error while creating record. Try again: <br>" . $connect->error;
-        $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
+        // $uploadError = ($picture->error !=0)? $picture->ErrorMessage :'';
     }
     mysqli_close($connect);
 } else {

@@ -35,7 +35,7 @@ $options .= "<option value='{$row["supplierId"]}'>{$row["sup_name"]}</option>";
     <body>
         <fieldset>
             <legend class='h2'>Add Pet</legend>
-            <form action="actions/a_create.php" method= "post" enctype="multipart/form-data">
+            <form action="actions/a_create.php" method="post" enctype="multipart/form-data">
                 <table class='table'>
                     <tr>
                         <th>Name</th>
@@ -46,12 +46,28 @@ $options .= "<option value='{$row["supplierId"]}'>{$row["sup_name"]}</option>";
                         <td><input class='form-control' type="text" name= "gender" placeholder="gender"  /></td>
                     </tr>
                     <tr>
+                        <th>Breed</th>
+                        <td><input class='form-control' type="text" name="breed"  placeholder="breed Name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Size</th>
+                        <td><input class='form-control' type="text" name="size"  placeholder="size" /></td>
+                    </tr>      
+                    <tr>
+                        <th>Vaccinated</th>
+                        <td><input class='form-control' type="text" name="vaccinated"  placeholder="vaccinated" /></td>
+                    </tr>  
+                    <tr>
+                        <th>Availability</th>
+                        <td><input class='form-control' type="text" name="availability"  placeholder="availability" /></td>
+                    </tr>    
+                    <tr>
                         <th>Age</th>
                         <td><input class='form-control' type="number" name="age" /></td>
                     </tr>
                     <tr>
                         <th>picture</th>
-                        <td><input class='form-control' type="file" name="picture"   /></td>    
+                        <td><input class='form-control' type="text" name="picture"   /></td>    
                     </tr>  
                     <tr>
                         <th>Supplier</th>

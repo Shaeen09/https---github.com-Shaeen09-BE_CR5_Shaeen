@@ -17,11 +17,11 @@ $tbody=''; //this variable will hold the body for the table
 if(mysqli_num_rows($result)  > 0) {     
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){         
         $tbody .= "<tr>
-            <td><img class='img-thumbnail' src='../../pictures/" .$row['picture']."'</td>
+            <td><img class='img-thumbnail' src='{$row['picture']}'</td>
             <td>" .$row['name']."</td>
             <td>" .$row['gender']."</td>
             <td>" .$row['age']."</td>
-            <td>" .$row['sup_name']."</td>
+            <td><a href='details.php?id=" .$row['id']."'><button class='btn btn-success btn-sm' type='button'>Details</button></a>        
             <td><a href='update.php?id=" .$row['id']."'><button class='btn btn-primary btn-sm' type='button'>Update</button></a>
             <a href='delete.php?id=" .$row['id']."'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a></td>
             </tr>";
@@ -58,6 +58,28 @@ mysqli_close($connect);
         </style>
     </head>
     <body>
+        <!-- header -->
+    <h1 style="background-image: url('pet.png');">PET Adoption Center</h1>
+    <nav class="navbar navbar-expand-lg bg-body-primary">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- header -->
         <div class="manageProduct w-75 mt-3">    
             <div class='mb-3'>
                 <a href= "create.php"><button class='btn btn-primary'type="button" >Add PET</button></a>
@@ -69,11 +91,13 @@ mysqli_close($connect);
                     <tr>
                         <th>Picture</th>
                         <th>Name</th>
-                        <th>Age</th>
                         <th>Gender</th>
-                        <th>Breed</th>
+                        <th>Age</th>
+                        <!-- <th>Breed</th>
                         <th>Vaccinated</th>
-                        <th>Supplier</th>
+                        <th>Supplier</th> -->
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if(isset($_SESSION["user"])){
+if(isset($_SESSION["user"]) !=""){
     header("Location: home.php");
 }
-if(isset($_SESSION["adm"])){
+if(isset($_SESSION["adm"]) !=""){
     header("Location: dashboard.php");
 }
 

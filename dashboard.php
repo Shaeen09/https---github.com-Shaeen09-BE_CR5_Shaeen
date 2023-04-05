@@ -26,8 +26,9 @@ if ($result->num_rows > 0) {
           <td>" . $row['first_name'] . " " . $row['last_name'] . "</td>
           <td>" . $row['date_of_birth'] . "</td>
           <td>" . $row['email'] . "</td>
-          <td><a href='update.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
-          <a href='delete.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a></td>
+          <td><a href='details.php?id={$row['id']}'><button class='btn btn-primary btn-sm' type='button'>Details</button></a>
+          <a href='update.php?id={$row['id']}'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
+          <a href='delete.php?id={$row['id']}'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a></td>
        </tr>";
   }
 } else {
