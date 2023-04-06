@@ -19,7 +19,7 @@ $tbody=''; //this variable will hold the body for the table
 if(mysqli_num_rows($result)  > 0) {     
     while($data = mysqli_fetch_array($result, MYSQLI_ASSOC)){         
         $tbody .= "<tr>
-            <td><img class='img-thumbnail' src='pictures/" .$data['picture']."' width='150'></td>
+            <td><img class='img-thumbnail' src='" .$data['picture']."' width='150'></td>
             <td>" .$data['name']."</td>
             <td>" .$data['gender']."</td>
             <td>" .$data['age']."</td>
@@ -59,9 +59,11 @@ mysqli_close($connect);
 <body>
   <div class="container">
       <div class="hero">
+        
           <img class="userImage" src="pictures/<?php echo $row['picture']; ?>" alt="<?php echo $row['first_name']; ?>">
           <p class="text-white">Hi <?php echo $row['first_name']; ?></p>
       </div>
+      <a href="senior.php">Senior pets</a>
       <a href="logout.php?logout">Sign Out</a>
       <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update your profile</a> 
 

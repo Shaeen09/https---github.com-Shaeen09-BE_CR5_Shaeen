@@ -1,18 +1,15 @@
-<?php 
-require_once '../components/db_connect.php';
+<?php
+
+require_once "components/db_connect.php";
+
 session_start();
-if(!isset($_SESSION["user"]) && !isset($_SESSION["adm"])){
-    header("Location:../index.php");
-    exit;
-}
-if(isset($_SESSION["user"])){
-    header("Location:../home.php");
-    exit;
+if (!isset($_SESSION["user"])) {
+  header("location:index.php");
 }
 
 
-$sql = "SELECT pets. *, suppliers.sup_name FROM pets JOIN suppliers on pets.fk_supplierId = suppliers.supplierId";
-$result = mysqli_query($connect ,$sql);
+$sql = "SELECT * from pets WHERE age >= 8 ";
+$result = mysqli_query($connect, $sql);
 $tbody=''; //this variable will hold the body for the table
 if(mysqli_num_rows($result)  > 0) {     
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){         
@@ -31,34 +28,20 @@ if(mysqli_num_rows($result)  > 0) {
 }
 
 mysqli_close($connect);
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PHP CRUD</title>
-        <?php require_once '../components/boot.php'?>
-        <style type="text/css">
-            .manageProduct {           
-                margin: auto;
-            }
-            .img-thumbnail {
-                width: 70px !important;
-                height: 70px !important;
-            }
-            td {          
-                text-align: left;
-                vertical-align: middle;
-            }
-            tr {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- header -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- header -->
     <h1 style="background-image: url('pet.png');">PET Adoption Center</h1>
     <nav class="navbar navbar-expand-lg bg-warning">
   <div class="container-fluid">
@@ -73,7 +56,7 @@ mysqli_close($connect);
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../senior.php">Senior</a>
+          <a class="nav-link active" aria-current="page" href="senior.php">Senior</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="contacts.php">Contacts</a>
@@ -83,7 +66,7 @@ mysqli_close($connect);
   </div>
 </nav>
 <!-- header -->
-        <div class="manageProduct w-75 mt-3">    
+<div class="manageProduct w-75 mt-3">    
             <div class='mb-3'>
                 <a href= "create.php"><button class='btn btn-primary'type="button" >Add PET</button></a>
                 <a href= "../dashboard.php"><button class="btn btn-success" type="button">Dashboard</button></a>
@@ -108,5 +91,6 @@ mysqli_close($connect);
                 </tbody>
             </table>
         </div>
-    </body>
+    
+</body>
 </html>

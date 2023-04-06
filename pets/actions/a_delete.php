@@ -36,6 +36,7 @@ if ($_POST) {
         <?php require_once '../../components/boot.php'?>  
     </head>
     <body>
+        
         <div class="container">
             <div class="mt-3 mb-3">
                 <h1>Delete request response</h1>

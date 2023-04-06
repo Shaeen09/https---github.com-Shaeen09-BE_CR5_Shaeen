@@ -57,26 +57,31 @@ if ($_GET['id']) {
         </style>
     </head>
     <body>
-        <h1>PET Adoption Center</h1>
-    <nav class="navbar navbar-expand-lg bg-body-primary">
+          <!-- header -->
+    <h1 style="background-image: url('pet.png');">PET Adoption Center</h1>
+    <nav class="navbar navbar-expand-lg bg-warning">
   <div class="container-fluid">
     
-    <a class="navbar-brand" href="index.php">Pet Adoption Center</a>
+    <a class="navbar-brand"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
+          <a class="nav-link active" aria-current="page" href="senior.php">Senior</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="contacts.php">Contacts</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<!-- header -->
         <fieldset>
             <legend class='h2'>Update request <img class='img-thumbnail rounded-circle' src='<?php echo $picture ?>' alt="<?php echo $name ?>"></legend>
             <form action="actions/a_update.php"  method="post" enctype="multipart/form-data">

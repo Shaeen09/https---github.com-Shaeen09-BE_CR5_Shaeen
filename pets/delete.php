@@ -35,6 +35,7 @@ if(isset($_SESSION["user"])){
         </style>
     </head>
     <body>
+        
         <fieldset>
         
             <h5>You have selected the data below:</h5>

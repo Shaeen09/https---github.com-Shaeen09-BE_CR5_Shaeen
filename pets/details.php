@@ -11,11 +11,14 @@ if(isset($_SESSION["user"])){
 }
 
 $id = $_GET["id"];
-$sql = "SELECT * FROM `pets` WHERE id = $id ";
+// $sql = "SELECT * FROM `pets` WHERE id = $id ";
+$sql = "SELECT pets. *, suppliers.sup_name FROM pets JOIN suppliers ON pets.fk_supplierId = suppliers.supplierId
+WHERE id = $id ";
 $result = mysqli_query($connect, $sql);
 
 $row =mysqli_fetch_assoc($result);
-
+// var_dump($row);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -43,22 +46,47 @@ $row =mysqli_fetch_assoc($result);
         </style>
     </head>
     <body>
+         <!-- header -->
+    <h1 style="background-image: url('pet.png');">PET Adoption Center</h1>
+    <nav class="navbar navbar-expand-lg bg-warning">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="contacts.php">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="senior.php">Senior</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- header -->
        <div class="container">
        
             <p class='h2'>Pets Details</p>
             <div class="card" style="width: 24rem;">
-  <img src="<?$row['picture']?>" class="card-img-top" alt="...">
+  <img src="<?=$row['picture']?>" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title"><?$row['name']?></h5>
-    <h5 class="card-title"><?$row['gender']?></h5>
-    <h5 class="card-title"><?$row['breed']?></h5>
-    <h5 class="card-title"><?$row['age']?></h5>
-    <h5 class="card-title"><?$row['vaccinated']?></h5>
-    <a href="index.php" class="btn btn-primary">Home</a>
+    <h5 class="card-title"><?=$row['name']?></h5>
+    <h5 class="card-title"><?=$row['gender']?></h5>
+    <h5 class="card-title"><?=$row['breed']?></h5>
+    <h5 class="card-title"><?=$row['age']?></h5>
+    <h5 class="card-title"><?=$row['vaccinated']?></h5>
+    
   </div>
             </div>
-        <a href= "create.php"><button class='btn btn-warning'type="button" >PET Details</button></a>
-     <a href= "../dashboard.php"><button class="btn btn-success" type="button">Dashboard</button></a>        
+            <a href="index.php" class="btn btn-primary">Home</a>
+        <a href= "../dashboard.php"><button class="btn btn-success" type="button">Dashboard</button></a>        
         </div>          
         
     </body>
