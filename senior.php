@@ -18,9 +18,9 @@ if(mysqli_num_rows($result)  > 0) {
             <td>" .$row['name']."</td>
             <td>" .$row['gender']."</td>
             <td>" .$row['age']."</td>
+            
             <td><a href='details.php?id=" .$row['id']."'><button class='btn btn-success btn-sm' type='button'>Details</button></a>        
-            <td><a href='update.php?id=" .$row['id']."'><button class='btn btn-primary btn-sm' type='button'>Update</button></a>
-            <a href='delete.php?id=" .$row['id']."'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a></td>
+           
             </tr>";
     };
 } else {
@@ -39,6 +39,7 @@ mysqli_close($connect);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     <!-- header -->
@@ -66,22 +67,21 @@ mysqli_close($connect);
   </div>
 </nav>
 <!-- header -->
-<div class="manageProduct w-75 mt-3">    
-            <div class='mb-3'>
-                <a href= "create.php"><button class='btn btn-primary'type="button" >Add PET</button></a>
-                <a href= "../dashboard.php"><button class="btn btn-success" type="button">Dashboard</button></a>
+        <div class="manageProduct w-75 mt-3">    
+            <div class='mb-5'>
+            <a href= "../dashboard.php"><button class="btn btn-success" type="button">Dashboard</button></a>
             </div>
             <p class='h2'>Pets</p>
             <table class='table table-striped'>
-                <thead class='table-success'>
+                <thead class='table-primary'>
                     <tr>
                         <th>Picture</th>
                         <th>Name</th>
                         <th>Gender</th>
                         <th>Age</th>
-                        <!-- <th>Breed</th>
+                         <th>Breed</th>
                         <th>Vaccinated</th>
-                        <th>Supplier</th> -->
+                        <th>Supplier</th>
                         <th></th>
                         <th></th>
                     </tr>

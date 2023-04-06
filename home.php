@@ -61,13 +61,13 @@ mysqli_close($connect);
       <div class="hero">
         
           <img class="userImage" src="pictures/<?php echo $row['picture']; ?>" alt="<?php echo $row['first_name']; ?>">
-          <p class="text-white">Hi <?php echo $row['first_name']; ?></p>
+          <p class="text-white">Welcome<?php echo $row['first_name']; ?></p>
+          <a href="logout.php?logout">Sign Out</a>
       </div>
-      <a href="senior.php">Senior pets</a>
-      <a href="logout.php?logout">Sign Out</a>
-      <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update your profile</a> 
 
+      <a class="btn btn-danger" href="senior.php">Senior pets</a>
       
+      <a class="btn btn-secondary" href="update.php?id=<?php echo $_SESSION['user'] ?>">Update your profile</a> 
       <div class="manageProduct w-75 mt-3">    
             <div class='mb-3'>
                 

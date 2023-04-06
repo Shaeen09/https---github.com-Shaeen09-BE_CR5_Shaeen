@@ -41,6 +41,10 @@ mysqli_close($connect);
         <title>PHP CRUD</title>
         <?php require_once '../components/boot.php'?>
         <style type="text/css">
+            body{
+                background-image: url("pet.png");
+                background-color: #cccccc;
+            }
             .manageProduct {           
                 margin: auto;
             }
